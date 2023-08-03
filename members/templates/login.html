@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'Login/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+          <div class="title"><span>Login Form</span></div>
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %}">
+            {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+          
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="row">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="pass"><a href="{% url 'reset_password' %}">Forgot password?</a></div>
+            <div class="row button">
+              <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">Not a member? <a href="{% url 'register' %}">Signup now</a></div>
+          </form>
+        </div>
+      </div>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

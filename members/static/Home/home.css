@@ -1,0 +1,31 @@
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 48px;
+  color: #007bff;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.logout-button {
+  position: absolute;
+  color: #f0f0f0;
+
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
+}
